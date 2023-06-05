@@ -5,8 +5,13 @@ import { SearchForm } from './SearchForm';
 import { Footer } from './Footer';
 
 import './App.css';
+import Results from './SearchResults';
+import ImageDetailsPage from './ImageDetailsPage';
 
 export function App() {
+	const [searchResults, setSearchResults] = useState([]);
+	const [selectedImage, setSelectedImage] = useState('');
+
 	function onSearchSubmit(query) {
 		// Search for the users's query.
 		// TODO: render the results, instead of logging them to the console.
@@ -15,14 +20,29 @@ export function App() {
 		// our UI, we need to make real requests!
 		// @see: ./src/api.js
 		searchArtworks(query).then((json) => {
-			console.log(json);
+			setSearchResults(json.data);
+			console.log(json.data);
 		});
 	}
 
 	return (
 		<div className="App">
 			<h1>TCL Career Lab Art Finder</h1>
-			<SearchForm onSearchSubmit={onSearchSubmit} />
+			{!selectedImage ? (
+				<>
+					<SearchForm onSearchSubmit={onSearchSubmit} />
+					<Results
+						results={searchResults}
+						setSelectedImage={setSelectedImage}
+					/>
+				</>
+			) : (
+				<ImageDetailsPage
+					selectedImage={selectedImage}
+					setSelectedImage={setSelectedImage}
+				/>
+			)}
+
 			<Footer />
 		</div>
 	);
