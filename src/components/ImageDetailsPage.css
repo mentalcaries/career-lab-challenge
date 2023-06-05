@@ -1,0 +1,9 @@
+.details__image {
+	max-height: 800px;
+	width: auto;
+}
+
+.details__button {
+	max-width: 120px;
+	padding: 8px;
+}

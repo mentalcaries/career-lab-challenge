@@ -19,9 +19,8 @@ export function App() {
 		// don't make too many requests to the API! Once we've built out
 		// our UI, we need to make real requests!
 		// @see: ./src/api.js
-		searchArtworks(query).then((json) => {
-			setSearchResults(json.data);
-			console.log(json.data);
+		searchArtworks(query).then((result) => {
+			setSearchResults(result.data);
 		});
 	}
 

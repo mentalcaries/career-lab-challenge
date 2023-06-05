@@ -1,16 +1,20 @@
 import React from 'react';
-
-// the name of the piece
-// the artist who created the piece
-// the image associated with the piece (don't forget its alt text!)
-// a back button that returns the user to the list of results
+import './ImageDetailsPage.css';
 
 function ImageDetailsPage({ selectedImage, setSelectedImage }) {
-	const { title, artist_title, thumbnail } = selectedImage;
+	const { title, artist_title, thumbnail, image_id } = selectedImage;
 	return (
 		<>
-			<button onClick={() => setSelectedImage('')}>Back</button>
+			<button className="details__button" onClick={() => setSelectedImage('')}>
+				Back
+			</button>
 			<h2>{title}</h2>
+			<p>Artist: {artist_title}</p>
+			<img
+				alt={thumbnail.alt_text}
+				className="details__image"
+				src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`}
+			/>
 		</>
 	);
 }
