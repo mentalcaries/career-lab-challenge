@@ -6,7 +6,7 @@ function SearchResults({ results, setSelectedImage }) {
 		<div>
 			<h2>Search Results</h2>
 			{results.length > 0 ? (
-				<ul className="results__list">
+				<ol className="results__list">
 					{results.map((result) => (
 						<li key={result.image_id} className="results__list">
 							<button
@@ -18,7 +18,7 @@ function SearchResults({ results, setSelectedImage }) {
 							</button>
 						</li>
 					))}
-				</ul>
+				</ol>
 			) : (
 				<p>No results found</p>
 			)}

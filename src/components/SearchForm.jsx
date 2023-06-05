@@ -11,7 +11,8 @@ export function SearchForm({ onSearchSubmit }) {
 
 	function handleFormSubmit(event) {
 		event.preventDefault();
-		onSearchSubmit(query);
+		// better validation needed for search input
+		if (query.length > 2) onSearchSubmit(query);
 	}
 
 	return (

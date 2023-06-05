@@ -9,7 +9,7 @@ function ImageDetailsPage({ selectedImage, setSelectedImage }) {
 				Back
 			</button>
 			<h2>{title}</h2>
-			<p>Artist: {artist_title}</p>
+			<p>Artist: {artist_title ?? 'Unknown'}</p>
 			<img
 				alt={thumbnail.alt_text}
 				className="details__image"
